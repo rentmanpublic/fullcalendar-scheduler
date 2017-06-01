@@ -19,7 +19,7 @@
 			aspectRatio: 1.8,
 			scrollTime: '00:00',
 			header: {
-				left: 'promptResource today prev,next',
+				left: 'promptResource removeAll today prev,next',
 				center: 'title',
 				right: 'timelineDay,timelineThreeDays,agendaWeek,month'
 			},
@@ -35,6 +35,12 @@
 								true // scroll to the new resource?
 							);
 						}
+					}
+				},
+				removeAll: {
+					text: 'remove all',
+					click: function() {
+						$('#calendar').fullCalendar('removeAllResources');
 					}
 				}
 			},

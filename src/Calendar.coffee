@@ -45,6 +45,10 @@ class CalendarExtension extends Calendar
 		@resourceManager.removeResource(idOrResource)
 
 
+	removeAllResources: ->
+		@resourceManager.removeAllResources()
+
+
 	refetchResources: -> # for API
 		@resourceManager.fetchResources()
 		return

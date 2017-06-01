@@ -183,6 +183,12 @@ class ResourceManager extends Class
 			resource
 
 
+	removeAllResources: ->
+		@topLevelResources = []
+		@resourcesById = {}
+		@trigger('reset', [])
+
+
 	removeResourceFromIndex: (resourceId) ->
 		resource = @resourcesById[resourceId]
 		if resource
