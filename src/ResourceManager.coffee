@@ -223,6 +223,12 @@ class ResourceManager extends Class
 			Promise.reject()
 
 
+	removeAllResources: ->
+		@topLevelResources = []
+		@resourcesById = {}
+		@trigger('reset', [])
+
+
 	removeResourceFromIndex: (resourceId) ->
 		resource = @resourcesById[resourceId]
 		if resource
