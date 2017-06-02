@@ -1,8 +1,8 @@
 
 /*!
-<%= title %> v<%= version %>
-Docs & License: <%= homepage %>
-(c) <%= copyright %>
+FullCalendar Scheduler v0.0.0
+Docs & License: https://fullcalendar.io/scheduler/
+(c) 2017 Adam Shaw
  */
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
@@ -27,7 +27,7 @@ var COL_MIN_WIDTH, Calendar, CalendarExtension, Class, ClippedScroller, CoordCac
 
 FC = $.fullCalendar;
 
-FC.schedulerVersion = "<%= version %>";
+FC.schedulerVersion = "0.0.0";
 
 if (FC.internalApiVersion !== 9) {
   FC.warn('v' + FC.schedulerVersion + ' of FullCalendar Scheduler ' + 'is incompatible with v' + FC.version + ' of the core.\n' + 'Please see http://fullcalendar.io/support/ for more information.');
@@ -6483,7 +6483,7 @@ FC.views.month.queryResourceClass = function(viewSpec) {
   }
 };
 
-RELEASE_DATE = '<%= releaseDate %>';
+RELEASE_DATE = '2017-06-01';
 
 UPGRADE_WINDOW = {
   years: 1,
@@ -6539,5 +6539,3 @@ detectWarningInContainer = function(containerEl) {
 };
 
 });
-
-//# sourceMappingURL=scheduler.js.map
