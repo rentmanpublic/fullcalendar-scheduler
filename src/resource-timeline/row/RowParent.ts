@@ -488,8 +488,15 @@ export default class RowParent extends DateComponent {
   setTrInnerHeight(height) {
     // exclude multi-rowspans (probably done for row grouping)
     $.each(this.trHash, (type, tr) => {
-      getOwnCells(tr).find('> div:not(.fc-cell-content):first')
-        .height(height)
+      const elem = getOwnCells(tr).find('> div:not(.fc-cell-content):first')
+      const parent = elem.parent()
+      const fragment = document.createDocumentFragment()
+
+      fragment.appendChild(elem[0])
+
+      elem.height(height)
+
+      parent[0].appendChild(elem[0])
     })
   }
 
