@@ -37,11 +37,6 @@ export default class ScrollFollowerSprite {
 
     this.el = el
     this.id = String(ScrollFollowerSprite.uid++)
-    this.isBlock = this.el.css('display') === 'block'
-
-    if (this.el.css('position') !== 'relative') {
-      this.el.css('position', 'relative')
-    }
   }
 
 

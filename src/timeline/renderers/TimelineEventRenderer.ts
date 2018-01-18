@@ -27,24 +27,22 @@ export default class TimelineEventRenderer extends EventRenderer {
 
   renderFgSegs(segs) {
     const { eventTitleFollower } = this.view
+    const containerParentEl = this.component.segContainerEl.parent()
+    const fragment = document.createDocumentFragment()
+
+    fragment.appendChild(this.component.segContainerEl[0])
 
     for (let seg of segs) {
       // TODO: centralize logic (also in updateSegPositions)
       const coords = this.component.rangeToCoords(seg)
+
       seg.el.css({
         left: (seg.left = coords.left),
         right: -(seg.right = coords.right)
       })
-    }
 
-    // attach segs
-    for (let seg of segs) {
       seg.el.appendTo(this.component.segContainerEl)
-    }
-
-    // compute seg verticals
-    for (let seg of segs) {
-      seg.height = seg.el.outerHeight(true) // include margin
+      seg.height = 24 // todo: option for seg height, or just set on init?
     }
 
     this.buildSegLevels(segs)
@@ -56,6 +54,7 @@ export default class TimelineEventRenderer extends EventRenderer {
     }
 
     this.component.segContainerEl.height(this.component.segContainerHeight)
+    containerParentEl.append(this.component.segContainerEl)
 
     for (let seg of segs) {
       const titleEl = seg.el.find('.fc-title')
@@ -127,9 +126,16 @@ export default class TimelineEventRenderer extends EventRenderer {
         }
       }
 
+      let parentEl = this.component.segContainerEl.parent()
+      let fragment = document.createDocumentFragment()
+
+      fragment.appendChild(this.component.segContainerEl[0])
+
       this.component.segContainerEl.empty()
       this.component.segContainerEl.height('')
       this.component.segContainerHeight = null
+
+      parentEl[0].appendChild(this.component.segContainerEl[0])
     }
   }
 
