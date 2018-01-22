@@ -150,6 +150,13 @@ export default class TimelineEventRenderer extends EventRenderer {
     classes.unshift('fc-timeline-event', 'fc-h-event')
 
     const timeText = this.getTimeText(seg.footprint)
+    const props = eventDef.miscProps
+    const icons = (props.icon ? [props.icon] : props.icons) || []
+    let iconTemplate = ''
+
+    for (let i = 0; i < icons.length; i++) {
+      iconTemplate += '<i class="' + icons[i] + ' fc-title-icon"></i>'
+    }
 
     return '<a class="' + classes.join(' ') + '" style="' + cssToStr(this.getSkinCss(seg.footprint.eventDef)) + '"' +
       (eventDef.url ?
@@ -157,6 +164,7 @@ export default class TimelineEventRenderer extends EventRenderer {
         '') +
       '>' +
       '<div class="fc-content">' +
+        iconTemplate +
         (timeText ?
           '<span class="fc-time">' +
             htmlEscape(timeText) +
@@ -176,7 +184,6 @@ export default class TimelineEventRenderer extends EventRenderer {
         '') +
     '</a>'
   }
-
 }
 
 

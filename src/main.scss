@@ -457,9 +457,18 @@ tr.fc-collapsed > td > div {
 	padding-left: 10px;
 	margin-left: -8px;
 }
+
+.fc-ltr .fc-timeline-event .fc-title-icon {
+  margin-right: 5px;
+}
+
 .fc-rtl .fc-timeline-event .fc-title {
 	padding-right: 10px;
 	margin-right: -8px;
+}
+
+.fc-rtl .fc-timeline-event .fc-title-icon {
+  margin-left: 5px;
 }
 
 .fc-ltr .fc-timeline-event.fc-not-start .fc-title {
