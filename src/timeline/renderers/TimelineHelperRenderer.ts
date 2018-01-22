@@ -30,13 +30,14 @@ export default class TimelineHelperRenderer extends HelperRenderer {
     }
 
     const helperContainerEl = $('<div class="fc-event-container fc-helper-container"/>')
-      .appendTo(this.component.innerEl)
 
     helperNodes.push(helperContainerEl[0])
 
     for (let seg of segs) {
       helperContainerEl.append(seg.el)
     }
+
+    helperContainerEl.appendTo(this.component.innerEl)
 
     return $(helperNodes) // return value. TODO: need to accumulate across calls?
   }
