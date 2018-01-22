@@ -914,7 +914,7 @@ export default class ResourceTimelineView extends TimelineView {
     let resourceId
     let rowObj
 
-    if (seg) {
+    if (seg && !this.opt('enableFreeEventDragging')) {
       // draw helper
       for (resourceId in map) {
         resourceEventFootprints = map[resourceId]
