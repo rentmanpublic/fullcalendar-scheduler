@@ -16,6 +16,13 @@ export default class ResourceRow extends EventRow {
     super(view)
     this.resource = resource
     this.eventRenderer.designatedResource = this.resource
+
+    let isExpanded = this.view.publiclyTrigger('resourceInitiallyExpanded', {
+      context: resource,
+      args: [ resource, this.view ]
+    })
+
+    this.isExpanded = !!isExpanded
   }
 
 
