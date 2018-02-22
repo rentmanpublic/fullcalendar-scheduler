@@ -63,20 +63,28 @@ export default class ScrollFollowerSprite {
     this.absoluteEl = null
   }
 
+  getRects() {
+    let rects = ({} as any)
+    let follower = this.follower
 
-  cacheDimensions() {
+    rects.naturalRect = (this.naturalRect = follower.getBoundingRect(this.el))
+
+    let parentEl = this.el.parent()
+    rects.parentRect = this.parentRect = follower.getBoundingRect(parentEl)
+
+    rects.containerRect = (this.containerRect = joinRects(follower.getContentRect(parentEl), rects.naturalRect))
+
+    return rects
+  }
+
+  cacheDimensions(naturalRect, parentRect, containerRect) {
     let isHFollowing = false
     let isVFollowing = false
     let isCentered = false
 
     this.naturalWidth = this.el.width()
 
-    this.resetPosition()
     const { follower } = this
-    const naturalRect = (this.naturalRect = follower.getBoundingRect(this.el))
-    const parentEl = this.el.parent()
-    this.parentRect = follower.getBoundingRect(parentEl)
-    const containerRect = (this.containerRect = joinRects(follower.getContentRect(parentEl), naturalRect))
     const { minTravel } = follower
 
     if (follower.containOnNaturalLeft) {

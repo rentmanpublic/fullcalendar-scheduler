@@ -101,7 +101,16 @@ export default class ScrollFollower {
     this.updateViewport()
     this.scrollbarWidths = this.scroller.getScrollbarWidths()
     this.contentOffset = this.scroller.canvas.el.offset()
-    this.iterSprites((sprite) => sprite.cacheDimensions())
+
+    let rects = {}
+
+    this.iterSprites((sprite, id) => rects[id] = sprite.getRects())
+
+    this.iterSprites((sprite, id) => {
+      let spriteRects = rects[id]
+
+      sprite.cacheDimensions(spriteRects.naturalRect, spriteRects.parentRect, spriteRects.containerRect)
+    })
   }
 
 
