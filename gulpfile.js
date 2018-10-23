@@ -36,7 +36,7 @@ gulp.task('release', [
   'lint',
   'dist',
   'archive',
-  'test:single' // headless, single run
+  // 'test:single' // headless, single run
 ])
 
 gulp.task('clean', function() {
