@@ -1,11 +1,11 @@
 {
-  "name": "fullcalendar-scheduler",
-  "title": "FullCalendar Scheduler",
+  "name": "@rentman/fullcalendar-scheduler",
+  "title": "Rentman FullCalendar Scheduler",
   "description": "A premium add-on to FullCalendar for displaying events and resources",
   "homepage": "https://fullcalendar.io/scheduler/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fullcalendar/fullcalendar-scheduler.git"
+    "url": "https://github.com/rentmanpublic/fullcalendar-scheduler.git"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "copyright": "2018 Adam Shaw",
