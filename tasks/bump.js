@@ -1,7 +1,6 @@
 const gulp = require('gulp')
 const gutil = require('gulp-util')
 const modify = require('gulp-modify-file')
-const moment = require('moment')
 
 // parsed command line arguments
 const { argv } = require('yargs')
@@ -18,7 +17,6 @@ gulp.task('bump', function(done) {
         modify(function(content) {
           const obj = JSON.parse(content)
 
-          obj.releaseDate = moment().format('YYYY-MM-DD') // always do current date
           obj.version = argv.version // from command line
 
           return JSON.stringify(obj, null, '  ') // indent using two spaces

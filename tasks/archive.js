@@ -11,8 +11,7 @@ const packageId = packageConf.name + '-' + packageConf.version
 gulp.task('archive', [
   'archive:dist',
   'archive:misc',
-  'archive:deps',
-  'archive:demos'
+  'archive:deps'
 ], function() {
   // make the zip, with a single root directory of a similar name
   return gulp.src(`tmp/${packageId}/**/*`, { base: 'tmp/' })

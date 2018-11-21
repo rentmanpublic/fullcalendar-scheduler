@@ -35,7 +35,7 @@ gulp.task('dist', [
 gulp.task('release', [
   'lint',
   'dist',
-  'archive',
+  'archive'
   // 'test:single' // headless, single run
 ])
 
