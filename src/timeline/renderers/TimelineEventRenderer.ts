@@ -158,6 +158,10 @@ export default class TimelineEventRenderer extends EventRenderer {
       iconTemplate += '<i class="' + icons[i] + ' fc-title-icon"></i>'
     }
 
+    if (props.iconCallback) {
+    	iconTemplate += props.iconCallback(' fc-title-icon ')
+    }
+
     return '<a class="' + classes.join(' ') + '" style="' + cssToStr(this.getSkinCss(seg.footprint.eventDef)) + '"' +
       (eventDef.url ?
         ' href="' + htmlEscape(eventDef.url) + '"' :
